@@ -1,5 +1,5 @@
 
-FROM node:18
+FROM node:20-alpine
 
 # sets the working directory
 WORKDIR /app
@@ -17,7 +17,7 @@ COPY . .
 # if we are using environment variable we add this variable like this
 # ENV PORT=5000
 
-EXPOSE 5000
+EXPOSE 5173
 
 # command to run node index.js when the container starts
 CMD [ "npm", "run", "dev" ]
