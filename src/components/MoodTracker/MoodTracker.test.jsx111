@@ -1,0 +1,23 @@
+import React from 'react';
+import { render, screen, fireEvent } from '@testing-library/react';
+import MoodTracker from './MoodTracker';
+import { expect, test } from 'vitest'
+
+test('renders MoodTracker component', () => {
+  render(<MoodTracker />);
+
+  // Check if the initial mood text is displayed
+  expect(screen.getByText('...')).toBeInTheDocument();
+
+  // Simulate clicking on the happy button
+  fireEvent.click(screen.getByText('��'));
+  expect(screen.getByText('I am very happy today!')).toBeInTheDocument();
+
+  // Simulate clicking on the sad button
+  fireEvent.click(screen.getByText('��'));
+  expect(screen.getByText('I am Sad today!')).toBeInTheDocument();
+
+  // Simulate clicking on the angry button
+  fireEvent.click(screen.getByText('��'));
+  expect(screen.getByText('I am Angry today!')).toBeInTheDocument();
+});
